@@ -28,11 +28,9 @@ onApprove: (data, actions) => {
 }
 }).render('#paypal-button-container');
 
-const express = require("express");
-const app = express();
 
-app.get("/", function (req, res) {
-  res.send("WORKING!!!");
-});
-
-app.listen(process.env.PORT || 5000);
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+app.listen(port);
